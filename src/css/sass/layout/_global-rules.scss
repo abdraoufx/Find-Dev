@@ -1,0 +1,46 @@
+@use "../variables/vars" as *;
+
+@use "../helpers/funcs" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: rem(800);
+
+  max-width: 100%;
+
+  padding: 0 rem(15);
+  margin-inline: auto;
+}
+
+.rounded {
+  border-radius: rem(8);
+}
+
+.dark,
+.white {
+  transition: $trnsDu ease-in;
+}

@@ -1,0 +1,383 @@
+@use "./variables/vars" as *;
+
+@use "./helpers/funcs" as *;
+@use "./helpers/mixins" as *;
+
+@use "./layout/global-rules" as *;
+
+.main {
+  min-height: 100%;
+
+  @include full-center;
+
+  padding: rem(30) 0;
+
+  &.dark {
+    background-color: $main-bg;
+  }
+  &.white {
+    background-color: $grsh-blue;
+  }
+
+  .container {
+    @include dir-col;
+  }
+  .container > .head {
+    @include spBeet;
+
+    margin-bottom: rem(30);
+
+    &.dark {
+      > h1 {
+        color: $white;
+      }
+    }
+
+    &.white {
+      > h1 {
+        color: $main-bg;
+      }
+    }
+    > {
+      img {
+        cursor: pointer;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .search-box {
+    padding: rem(15);
+
+    gap: rem(30);
+
+    @include spBeet;
+
+    margin-bottom: rem(20);
+
+    &.dark {
+      background-color: $snd-mainBg;
+
+      .search-input {
+        color: $white;
+
+        &::placeholder {
+          color: $grsh-white;
+        }
+      }
+    }
+
+    &.white {
+      background-color: $white;
+
+      box-shadow: -1px 20px 40px 8px #00000029;
+
+      .search-input {
+        color: $main-bg;
+
+        &::placeholder {
+          color: $snd-mainBg;
+        }
+      }
+    }
+
+    @include ph-Br {
+      gap: 0;
+    }
+
+    > div:first-of-type {
+      display: flex;
+      align-items: center;
+      gap: rem(25);
+
+      flex: 1;
+
+      @include ph-Br {
+        gap: rem(10);
+      }
+
+      img {
+        height: rem(32);
+
+        @include ph-Br {
+          height: rem(20);
+        }
+      }
+
+      .search-input {
+        background-color: transparent;
+        caret-color: $btn-clr;
+
+        border: none;
+
+        font-size: rem(23);
+        font-weight: 600;
+
+        flex: 1;
+
+        transition: $trnsDu ease-in-out;
+
+        @include ph-Br {
+          font-size: 1rem;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .submit-btn {
+      display: block;
+
+      padding: rem(13) rem(26);
+
+      cursor: pointer;
+
+      background-color: $btn-clr;
+      color: $white;
+
+      font-size: rem(20);
+      font-weight: bold;
+
+      border: none;
+      border-radius: 100vmax;
+
+      transition: $trnsDu ease-in-out;
+
+      @include ph-Br {
+        font-size: rem(17);
+
+        padding: rem(5) rem(15);
+      }
+
+      &:hover {
+        background-color: $hvr-clr;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .user-details {
+    padding: rem(35) rem(30);
+
+    display: flex;
+    gap: rem(25);
+
+    @include med-Br {
+      flex-direction: column;
+    }
+
+    &.dark {
+      background-color: $snd-mainBg;
+
+      .content {
+        .head {
+          .name {
+            color: $white;
+
+            & + .joined-date {
+              color: $grsh-white;
+            }
+          }
+        }
+
+        .bio {
+          color: $grsh-white;
+        }
+
+        .activities {
+          background-color: $main-bg;
+
+          > div {
+            .title {
+              color: $grsh-white;
+
+              & + span {
+                color: $white;
+              }
+            }
+          }
+        }
+
+        .contact {
+          .left-side,
+          .right-side {
+            span,
+            a {
+              color: $grsh-white;
+            }
+          }
+        }
+      }
+    }
+    &.white {
+      background-color: $white;
+
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 120px 0px;
+
+      .content {
+        .head {
+          .name {
+            color: $main-bg;
+
+            & + .joined-date {
+              color: $grsh-white;
+            }
+          }
+        }
+
+        .bio {
+          color: $snd-mainBg;
+        }
+
+        .activities {
+          background-color: $grsh-blue;
+
+          > div {
+            .title {
+              color: $main-bg;
+
+              & + span {
+                color: rgb(29 41 69 / 61%);
+              }
+            }
+          }
+        }
+
+        .contact {
+          .left-side,
+          .right-side {
+            span,
+            a {
+              color: $main-bg;
+            }
+          }
+        }
+      }
+    }
+
+    &__img {
+      height: rem(150);
+
+      border-radius: 50%;
+
+      @include med-Br {
+        align-self: center;
+      }
+    }
+
+    .content {
+      width: 100%;
+
+      @include dir-col;
+      gap: 1.3rem;
+
+      .head {
+        @include spBeet;
+        align-items: center;
+
+        @include med-Br {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: rem(8);
+        }
+
+        @include ph-Br {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: rem(8);
+        }
+
+        .name {
+          font-weight: 600;
+          font-size: rem(25);
+
+          transition: $trnsDu ease-in-out;
+
+          & + .joined-date {
+            font-size: rem(16);
+          }
+        }
+      }
+
+      .username {
+        position: relative;
+        bottom: rem(8);
+
+        color: $btn-clr;
+
+        transition: $trnsDu ease-in-out;
+
+        & + .bio {
+          font-size: rem(18);
+
+          transition: $trnsDu ease-in-out;
+        }
+      }
+
+      .activities {
+        display: flex;
+        justify-content: space-between;
+
+        padding: rem(12) rem(27);
+
+        > div {
+          @include dir-col;
+          gap: rem(3);
+
+          .title {
+            font-weight: bold;
+            font-size: rem(16);
+
+            transition: $trnsDu ease-in-out;
+            & + span {
+              font-weight: bold;
+              font-size: rem(18);
+
+              @include ph-Br {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+
+      .contact {
+        display: flex;
+        justify-content: space-between;
+
+        @include ph-Br {
+          flex-direction: column;
+          gap: rem(10);
+        }
+
+        .left-side,
+        .right-side {
+          @include dir-col;
+          gap: rem(10);
+
+          > div {
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+
+            > img {
+              height: rem(20);
+
+              & + span {
+                color: $grsh-white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

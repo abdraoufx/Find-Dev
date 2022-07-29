@@ -1,0 +1,30 @@
+@use "./funcs" as *;
+
+// FlexBox Mixins
+@mixin full-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin spBeet {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin dir-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// Media Queries Breakpoints
+@mixin med-Br {
+  @media (max-width: rem(740)) {
+    @content;
+  }
+}
+@mixin ph-Br {
+  @media (max-width: rem(590)) {
+    @content;
+  }
+}

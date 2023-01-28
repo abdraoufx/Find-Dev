@@ -2,4 +2,4 @@
 
 ## Live Website [Link](https://abdraoufx.github.io/Find-Dev/)
 
-![Preview_Design_Image](./public/design/design-desktop.png "Design Image")
+![Preview_Design_Image](./public/design/design-desktop.png "Design Images")
